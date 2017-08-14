@@ -3,7 +3,7 @@ var express = require('express')
 
 router.get('/', function(req, res) 
 {
-  res.redirect("../../client/index.html");
+  res.redirect("../../client");
 })
 
 module.exports = router
