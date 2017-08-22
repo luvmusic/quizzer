@@ -14,6 +14,7 @@ module.exports =
 		
 		topics.push({ id : 1, label : "League of Legends" });
 		topics.push({ id : 2, label : "World of Warcraft" });
+		topics.push({ id : 3, label : "Stephon is Nerd"]);
 		
 		callbackFunc(topics);
 	}
