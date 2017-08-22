@@ -12,8 +12,8 @@ module.exports =
 	{
 		var topics = [];
 		
-		topics.push({ id : 1, label : "History" });
-		topics.push({ id : 2, label : "Science" });
+		topics.push({ id : 1, label : "League of Legends" });
+		topics.push({ id : 2, label : "World of Warcraft" });
 		
 		callbackFunc(topics);
 	}
