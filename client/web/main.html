@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="Quizzer">
 	<head>
 		<meta charset="utf-8">
 		<title>Quizzer 0.1</title>
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Latest compiled Axios -->
+		<script src="https://npmcdn.com/axios/dist/axios.min.js"></script>
 
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,9 +16,31 @@
 		
 		<!-- AngularJS -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>	
+		
+		<!--The Quiz Controller-->
+		<script src="../scripts/quiz-controller.js"></script>	
 	</head>
 	
 	<body>
-		<h2>Hello, I am Alex the Quiz Master.</h2>
+		<div id="main-div"  class="container-fluid" ng-controller="QuizController as controller">
+			<h2>Hello, I am Alex, the Quiz Master.</h2>
+			
+			<button ng-click="controller.fetchTopicList()" type="submit" class="btn">Start New Quiz</button> 
+			
+			<div id="quiz-div" ng-show="controller.model.topicList.length > 0">
+				<div id="topic-selector-div">
+					<div class="form-group">
+						<label for="topic-chooser">Select a Topic</label>
+						<select id="topic-chooser" name="topic" ng-model="controller.model.selectedTopicID">
+							<option ng-repeat="topic in controller.model.topicList" value="{{topic.id}}">{{topic.label}}</option>
+						</select>
+					</div>
+			    </div>
+			    
+			    <div id="quiz-questions-div" ng-show="controller.model.selectedTopicID !== null">
+			    	The questions go here.
+			    </div>
+			</div>
+		</div>		
 	</body>
 </html>
